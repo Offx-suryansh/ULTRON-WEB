@@ -1,4 +1,3 @@
-
 (() => {
   "use strict";
 
@@ -69,6 +68,7 @@
     utterance.lang = /[\u0900-\u097F]/.test(message) ? "hi-IN" : "en-IN";
 
     const voices = window.speechSynthesis.getVoices();
+
     const preferred =
       voices.find(voice => voice.lang === utterance.lang) ||
       voices.find(voice => voice.lang.startsWith("en-IN")) ||
@@ -183,6 +183,7 @@
 
   function getResponse(command) {
     const greetings = /^(hi|hello|hey|hello ultron|hey ultron|good morning|good afternoon|good evening)$/;
+
     const creatorQuestions = [
       "who is your developer",
       "who is your creator",
@@ -201,7 +202,7 @@
 
     if (greetings.test(command)) {
       return {
-        text: "Hello! I'm Ultron Prime. What can I do for you?",
+        text: "Hello! I'm Ultron - For The Web. What can I do for you?",
         action: null
       };
     }
@@ -242,7 +243,7 @@
       command === "your name"
     ) {
       return {
-        text: "I'm Ultron Prime, a minimalist voice assistant created by Suryansh Sharma.",
+        text: "I'm Ultron - For The Web, a minimalist voice assistant created by Suryansh Sharma.",
         action: null
       };
     }
@@ -280,7 +281,7 @@
       command.includes("who do you belong to")
     ) {
       return {
-        text: "I was created by Suryansh Sharma as the Ultron Prime project.",
+        text: "I was created by Suryansh Sharma as the Ultron - For The Web project.",
         action: null
       };
     }
